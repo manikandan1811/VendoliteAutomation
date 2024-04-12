@@ -82,45 +82,50 @@ public class StepDefinitions {
 
 	}
 
+	public enum Button {
+	    login, ForgotPassword, RequestReset, menu, profile, save ,edit,HelpAndSupport, logout
+	}
+
 	@Given("Click on {string} button")
 	public void clickOnButton(String button) throws Exception {
 		By btnType = null;
-		switch (button) {
+		Button enumDay = Button.valueOf(button);
+		switch (enumDay) {
 
-		case "login":
+		case login:
 			btnType = loginPageElements.loginBtn;
 			break;
 
-		case "Forgot Password":
+		case ForgotPassword:
 			btnType = loginPageElements.forgotPasswordBtn;
 			break;
 
-		case "Request Reset":
+		case RequestReset:
 			library.enterValueon(driver, loginPageElements.usernameTxt, getUsername());
 			btnType = loginPageElements.resetRequestBtn;
 			break;
 
-		case "menu":
+		case menu:
 			btnType = homePageElements.menuBtn;
 			break;
 
-		case "profile":
+		case profile:
 			btnType = homePageElements.profileBtn;
 			break;
 
-		case "edit":
+		case edit:
 			btnType = profilePageElements.editBtn;
 			break;
 
-		case "save":
+		case save:
 			btnType = profilePageElements.saveBtn;
 			break;
 
-		case "Help and support":
+		case HelpAndSupport:
 			btnType = homePageElements.helpAndSupportLbl;
 			break;
 
-		case "logout":
+		case logout:
 			btnType = homePageElements.logoutBtn;
 			break;
 
