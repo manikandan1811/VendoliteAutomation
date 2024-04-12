@@ -89,8 +89,8 @@ public class StepDefinitions {
 	@Given("Click on {string} button")
 	public void clickOnButton(String button) throws Exception {
 		By btnType = null;
-		Button enumDay = Button.valueOf(button);
-		switch (enumDay) {
+		Button enumButton = Button.valueOf(button);
+		switch (enumButton) {
 
 		case login:
 			btnType = loginPageElements.loginBtn;
